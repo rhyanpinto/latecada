@@ -2,58 +2,44 @@ import ply.lex as lex
 
 # Lista de tokens
 tokens = (
-    'TITULO',
-    'PARAGRAFO',
-    'LISTA',
+    'SECTION',
+    'SUBSECTION',
+    'ITEMIZE',
+    'ENDITEMIZE',
     'ITEM',
+    'NEGRITO_INI',
+    'NEGRITO_FIM',
+    'ITALICO_INI',
+    'ITALICO_FIM',
     'LINK',
-    'NEGRITO',
-    'ITALICO',
-    'URL',
-    'TEXTO',
+    'TEXT',
+    'NEWLINE'
 )
 
 # Definições de tokens
-t_TITULO = r'</?titulo>'
-t_PARAGRAFO = r'</?paragrafo>'
-t_LISTA = r'</?lista>'
-t_ITEM = r'</?item>'
-t_NEGRITO = r'</?negrito>'
-t_ITALICO = r'</?italico>'
-t_LINK = r'<link url="[^"]*">'
+t_SECTION = r'\\section\{[^}]*\}'
+t_SUBSECTION = r'\\subsection\{[^}]*\}'
+t_ITEMIZE = r'\\begin\{itemize\}'
+t_ENDITEMIZE = r'\\end\{itemize\}'
+t_ITEM = r'\\item'
+t_NEGRITO_INI = r'\[negrito\]'
+t_NEGRITO_FIM = r'\[/negrito\]'
+t_ITALICO_INI = r'\[italico\]'
+t_ITALICO_FIM = r'\[/italico\]'
+t_LINK = r'\[link=[^\]]*\][^\[]*\[/link\]'
 t_ignore = ' \t'
 
-def t_URL(t):
-    r'url="[^"]*"'
-    t.value = t.value[5:-1]  # Remove 'url="' e o último '"'
+def t_TEXT(t):
+    r'[^\\\n]+'
     return t
 
-def t_TEXTO(t):
-    r'[^<>]+'
+def t_NEWLINE(t):
+    r'\n'
+    t.lexer.lineno += 1
     return t
-
-def t_newline(t):
-    r'\n+'
-    t.lexer.lineno += len(t.value)
 
 def t_error(t):
     print(f"Caracter ilegal '{t.value[0]}'")
     t.lexer.skip(1)
 
 lexer = lex.lex()
-
-# Teste
-data = '''
-<titulo>Exemplo</titulo>
-<paragrafo>Este é um <negrito>parágrafo</negrito> de exemplo.</paragrafo>
-<lista>
-    <item>Item 1</item>
-    <item>Item 2</item>
-</lista>
-<link url="http://example.com">Link</link>
-'''
-
-lexer.input(data)
-
-for tok in lexer:
-    print(tok)

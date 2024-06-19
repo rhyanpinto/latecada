@@ -1,0 +1,15 @@
+\section{Introdução}
+Este é um exemplo de documento utilizando a linguagem [negrito]Markdown[/negrito].
+
+\subsection{Objetivo}
+O objetivo deste documento é demonstrar a transformação de texto simples em um arquivo LaTeX.
+
+Este é um [negrito]parágrafo[/negrito] que contém [italico]texto em itálico[/italico] e também [negrito][italico]negrito e itálico[/italico][/negrito].
+
+\begin{itemize}
+\item Este é o primeiro item da lista.
+\item Este é o segundo item da lista.
+\item Este é o terceiro item da lista com [negrito]negrito[/negrito].
+\end{itemize}
+
+Para mais informações, acesse o [link=http://example.com]site de exemplo[/link].

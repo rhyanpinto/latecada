@@ -1,5 +1,5 @@
 ### LaTecada
-##Descrição
+_Descrição_
 
 Este repositório contém um analisador léxico e sintático que converte texto em português para o formato LaTeX. O analisador é implementado usando uma linguagem de programação [escolha a linguagem de programação] e utiliza as seguintes técnicas:
 

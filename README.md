@@ -7,7 +7,7 @@ Este repositório contém um analisador léxico e sintático que converte texto 
     Análise sintática: Verifica a estrutura gramatical do texto e identifica as diferentes partes da frase, como substantivos, verbos, adjetivos e advérbios.
     Geração de LaTeX: Converte as estruturas gramaticais identificadas na análise sintática em código LaTeX equivalente.
 
-#Funcionalidades
+_Funcionalidades_
 
 O analisador pode converter os seguintes elementos do português para LaTeX:
 

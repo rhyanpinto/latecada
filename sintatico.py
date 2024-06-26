@@ -1,6 +1,6 @@
 import ply.yacc as yacc
 from lexico import tokens
-from semantico import ast_para_latex
+from nodo import Nodo
 
 # Regras de produção e análise sintática
 class Nodo:

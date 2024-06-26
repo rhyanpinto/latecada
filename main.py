@@ -13,6 +13,8 @@ if __name__ == '__main__':
 
     lexer.input(data)
     ast = parser.parse(data)
-    latex = ast_para_latex(ast)
-
-    print(latex)
+    if ast:
+        latex = ast_para_latex(ast)
+        print(latex)
+    else:
+        print("Erro ao analisar o documento.")

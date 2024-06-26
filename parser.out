@@ -1,0 +1,524 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ALPHA
+    BEGIN
+    BF
+    BIBITEM
+    CITE
+    DEF
+    DELIMITER
+    END
+    ENVIRONMENT
+    FRAC
+    LABEL
+    LEFT
+    MU
+    NEWCOMMAND
+    NUM
+    REF
+    RIGHT
+    RM
+    TEXTO
+
+Grammar
+
+Rule 0     S' -> documento
+Rule 1     documento -> elementos
+Rule 2     elementos -> elemento
+Rule 3     elementos -> elemento elementos
+Rule 4     elemento -> titulo
+Rule 5     elemento -> subtitulo
+Rule 6     elemento -> paragrafo
+Rule 7     elemento -> lista
+Rule 8     elemento -> link
+Rule 9     titulo -> SECTION
+Rule 10    subtitulo -> SUBSECTION
+Rule 11    paragrafo -> conteudo NEWLINE
+Rule 12    conteudo -> texto
+Rule 13    conteudo -> texto conteudo
+Rule 14    texto -> TEXT
+Rule 15    texto -> NEGRITO_INI texto NEGRITO_FIM
+Rule 16    texto -> ITALICO_INI texto ITALICO_FIM
+Rule 17    lista -> ITEMIZE itens ENDITEMIZE
+Rule 18    itens -> item
+Rule 19    itens -> item itens
+Rule 20    item -> ITEM conteudo
+Rule 21    link -> LINK
+
+Terminals, with rules where they appear
+
+ALPHA                : 
+BEGIN                : 
+BF                   : 
+BIBITEM              : 
+CITE                 : 
+DEF                  : 
+DELIMITER            : 
+END                  : 
+ENDITEMIZE           : 17
+ENVIRONMENT          : 
+FRAC                 : 
+ITALICO_FIM          : 16
+ITALICO_INI          : 16
+ITEM                 : 20
+ITEMIZE              : 17
+LABEL                : 
+LEFT                 : 
+LINK                 : 21
+MU                   : 
+NEGRITO_FIM          : 15
+NEGRITO_INI          : 15
+NEWCOMMAND           : 
+NEWLINE              : 11
+NUM                  : 
+REF                  : 
+RIGHT                : 
+RM                   : 
+SECTION              : 9
+SUBSECTION           : 10
+TEXT                 : 14
+TEXTO                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+conteudo             : 11 13 20
+documento            : 0
+elemento             : 2 3
+elementos            : 1 3
+item                 : 18 19
+itens                : 17 19
+link                 : 8
+lista                : 7
+paragrafo            : 6
+subtitulo            : 5
+texto                : 12 13 15 16
+titulo               : 4
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . documento
+    (1) documento -> . elementos
+    (2) elementos -> . elemento
+    (3) elementos -> . elemento elementos
+    (4) elemento -> . titulo
+    (5) elemento -> . subtitulo
+    (6) elemento -> . paragrafo
+    (7) elemento -> . lista
+    (8) elemento -> . link
+    (9) titulo -> . SECTION
+    (10) subtitulo -> . SUBSECTION
+    (11) paragrafo -> . conteudo NEWLINE
+    (17) lista -> . ITEMIZE itens ENDITEMIZE
+    (21) link -> . LINK
+    (12) conteudo -> . texto
+    (13) conteudo -> . texto conteudo
+    (14) texto -> . TEXT
+    (15) texto -> . NEGRITO_INI texto NEGRITO_FIM
+    (16) texto -> . ITALICO_INI texto ITALICO_FIM
+
+    SECTION         shift and go to state 9
+    SUBSECTION      shift and go to state 10
+    ITEMIZE         shift and go to state 12
+    LINK            shift and go to state 13
+    TEXT            shift and go to state 15
+    NEGRITO_INI     shift and go to state 16
+    ITALICO_INI     shift and go to state 17
+
+    documento                      shift and go to state 1
+    elementos                      shift and go to state 2
+    elemento                       shift and go to state 3
+    titulo                         shift and go to state 4
+    subtitulo                      shift and go to state 5
+    paragrafo                      shift and go to state 6
+    lista                          shift and go to state 7
+    link                           shift and go to state 8
+    conteudo                       shift and go to state 11
+    texto                          shift and go to state 14
+
+state 1
+
+    (0) S' -> documento .
+
+
+
+state 2
+
+    (1) documento -> elementos .
+
+    $end            reduce using rule 1 (documento -> elementos .)
+
+
+state 3
+
+    (2) elementos -> elemento .
+    (3) elementos -> elemento . elementos
+    (2) elementos -> . elemento
+    (3) elementos -> . elemento elementos
+    (4) elemento -> . titulo
+    (5) elemento -> . subtitulo
+    (6) elemento -> . paragrafo
+    (7) elemento -> . lista
+    (8) elemento -> . link
+    (9) titulo -> . SECTION
+    (10) subtitulo -> . SUBSECTION
+    (11) paragrafo -> . conteudo NEWLINE
+    (17) lista -> . ITEMIZE itens ENDITEMIZE
+    (21) link -> . LINK
+    (12) conteudo -> . texto
+    (13) conteudo -> . texto conteudo
+    (14) texto -> . TEXT
+    (15) texto -> . NEGRITO_INI texto NEGRITO_FIM
+    (16) texto -> . ITALICO_INI texto ITALICO_FIM
+
+    $end            reduce using rule 2 (elementos -> elemento .)
+    SECTION         shift and go to state 9
+    SUBSECTION      shift and go to state 10
+    ITEMIZE         shift and go to state 12
+    LINK            shift and go to state 13
+    TEXT            shift and go to state 15
+    NEGRITO_INI     shift and go to state 16
+    ITALICO_INI     shift and go to state 17
+
+    elemento                       shift and go to state 3
+    elementos                      shift and go to state 18
+    titulo                         shift and go to state 4
+    subtitulo                      shift and go to state 5
+    paragrafo                      shift and go to state 6
+    lista                          shift and go to state 7
+    link                           shift and go to state 8
+    conteudo                       shift and go to state 11
+    texto                          shift and go to state 14
+
+state 4
+
+    (4) elemento -> titulo .
+
+    SECTION         reduce using rule 4 (elemento -> titulo .)
+    SUBSECTION      reduce using rule 4 (elemento -> titulo .)
+    ITEMIZE         reduce using rule 4 (elemento -> titulo .)
+    LINK            reduce using rule 4 (elemento -> titulo .)
+    TEXT            reduce using rule 4 (elemento -> titulo .)
+    NEGRITO_INI     reduce using rule 4 (elemento -> titulo .)
+    ITALICO_INI     reduce using rule 4 (elemento -> titulo .)
+    $end            reduce using rule 4 (elemento -> titulo .)
+
+
+state 5
+
+    (5) elemento -> subtitulo .
+
+    SECTION         reduce using rule 5 (elemento -> subtitulo .)
+    SUBSECTION      reduce using rule 5 (elemento -> subtitulo .)
+    ITEMIZE         reduce using rule 5 (elemento -> subtitulo .)
+    LINK            reduce using rule 5 (elemento -> subtitulo .)
+    TEXT            reduce using rule 5 (elemento -> subtitulo .)
+    NEGRITO_INI     reduce using rule 5 (elemento -> subtitulo .)
+    ITALICO_INI     reduce using rule 5 (elemento -> subtitulo .)
+    $end            reduce using rule 5 (elemento -> subtitulo .)
+
+
+state 6
+
+    (6) elemento -> paragrafo .
+
+    SECTION         reduce using rule 6 (elemento -> paragrafo .)
+    SUBSECTION      reduce using rule 6 (elemento -> paragrafo .)
+    ITEMIZE         reduce using rule 6 (elemento -> paragrafo .)
+    LINK            reduce using rule 6 (elemento -> paragrafo .)
+    TEXT            reduce using rule 6 (elemento -> paragrafo .)
+    NEGRITO_INI     reduce using rule 6 (elemento -> paragrafo .)
+    ITALICO_INI     reduce using rule 6 (elemento -> paragrafo .)
+    $end            reduce using rule 6 (elemento -> paragrafo .)
+
+
+state 7
+
+    (7) elemento -> lista .
+
+    SECTION         reduce using rule 7 (elemento -> lista .)
+    SUBSECTION      reduce using rule 7 (elemento -> lista .)
+    ITEMIZE         reduce using rule 7 (elemento -> lista .)
+    LINK            reduce using rule 7 (elemento -> lista .)
+    TEXT            reduce using rule 7 (elemento -> lista .)
+    NEGRITO_INI     reduce using rule 7 (elemento -> lista .)
+    ITALICO_INI     reduce using rule 7 (elemento -> lista .)
+    $end            reduce using rule 7 (elemento -> lista .)
+
+
+state 8
+
+    (8) elemento -> link .
+
+    SECTION         reduce using rule 8 (elemento -> link .)
+    SUBSECTION      reduce using rule 8 (elemento -> link .)
+    ITEMIZE         reduce using rule 8 (elemento -> link .)
+    LINK            reduce using rule 8 (elemento -> link .)
+    TEXT            reduce using rule 8 (elemento -> link .)
+    NEGRITO_INI     reduce using rule 8 (elemento -> link .)
+    ITALICO_INI     reduce using rule 8 (elemento -> link .)
+    $end            reduce using rule 8 (elemento -> link .)
+
+
+state 9
+
+    (9) titulo -> SECTION .
+
+    SECTION         reduce using rule 9 (titulo -> SECTION .)
+    SUBSECTION      reduce using rule 9 (titulo -> SECTION .)
+    ITEMIZE         reduce using rule 9 (titulo -> SECTION .)
+    LINK            reduce using rule 9 (titulo -> SECTION .)
+    TEXT            reduce using rule 9 (titulo -> SECTION .)
+    NEGRITO_INI     reduce using rule 9 (titulo -> SECTION .)
+    ITALICO_INI     reduce using rule 9 (titulo -> SECTION .)
+    $end            reduce using rule 9 (titulo -> SECTION .)
+
+
+state 10
+
+    (10) subtitulo -> SUBSECTION .
+
+    SECTION         reduce using rule 10 (subtitulo -> SUBSECTION .)
+    SUBSECTION      reduce using rule 10 (subtitulo -> SUBSECTION .)
+    ITEMIZE         reduce using rule 10 (subtitulo -> SUBSECTION .)
+    LINK            reduce using rule 10 (subtitulo -> SUBSECTION .)
+    TEXT            reduce using rule 10 (subtitulo -> SUBSECTION .)
+    NEGRITO_INI     reduce using rule 10 (subtitulo -> SUBSECTION .)
+    ITALICO_INI     reduce using rule 10 (subtitulo -> SUBSECTION .)
+    $end            reduce using rule 10 (subtitulo -> SUBSECTION .)
+
+
+state 11
+
+    (11) paragrafo -> conteudo . NEWLINE
+
+    NEWLINE         shift and go to state 19
+
+
+state 12
+
+    (17) lista -> ITEMIZE . itens ENDITEMIZE
+    (18) itens -> . item
+    (19) itens -> . item itens
+    (20) item -> . ITEM conteudo
+
+    ITEM            shift and go to state 22
+
+    itens                          shift and go to state 20
+    item                           shift and go to state 21
+
+state 13
+
+    (21) link -> LINK .
+
+    SECTION         reduce using rule 21 (link -> LINK .)
+    SUBSECTION      reduce using rule 21 (link -> LINK .)
+    ITEMIZE         reduce using rule 21 (link -> LINK .)
+    LINK            reduce using rule 21 (link -> LINK .)
+    TEXT            reduce using rule 21 (link -> LINK .)
+    NEGRITO_INI     reduce using rule 21 (link -> LINK .)
+    ITALICO_INI     reduce using rule 21 (link -> LINK .)
+    $end            reduce using rule 21 (link -> LINK .)
+
+
+state 14
+
+    (12) conteudo -> texto .
+    (13) conteudo -> texto . conteudo
+    (12) conteudo -> . texto
+    (13) conteudo -> . texto conteudo
+    (14) texto -> . TEXT
+    (15) texto -> . NEGRITO_INI texto NEGRITO_FIM
+    (16) texto -> . ITALICO_INI texto ITALICO_FIM
+
+    NEWLINE         reduce using rule 12 (conteudo -> texto .)
+    ITEM            reduce using rule 12 (conteudo -> texto .)
+    ENDITEMIZE      reduce using rule 12 (conteudo -> texto .)
+    TEXT            shift and go to state 15
+    NEGRITO_INI     shift and go to state 16
+    ITALICO_INI     shift and go to state 17
+
+    texto                          shift and go to state 14
+    conteudo                       shift and go to state 23
+
+state 15
+
+    (14) texto -> TEXT .
+
+    TEXT            reduce using rule 14 (texto -> TEXT .)
+    NEGRITO_INI     reduce using rule 14 (texto -> TEXT .)
+    ITALICO_INI     reduce using rule 14 (texto -> TEXT .)
+    NEWLINE         reduce using rule 14 (texto -> TEXT .)
+    ITEM            reduce using rule 14 (texto -> TEXT .)
+    ENDITEMIZE      reduce using rule 14 (texto -> TEXT .)
+    NEGRITO_FIM     reduce using rule 14 (texto -> TEXT .)
+    ITALICO_FIM     reduce using rule 14 (texto -> TEXT .)
+
+
+state 16
+
+    (15) texto -> NEGRITO_INI . texto NEGRITO_FIM
+    (14) texto -> . TEXT
+    (15) texto -> . NEGRITO_INI texto NEGRITO_FIM
+    (16) texto -> . ITALICO_INI texto ITALICO_FIM
+
+    TEXT            shift and go to state 15
+    NEGRITO_INI     shift and go to state 16
+    ITALICO_INI     shift and go to state 17
+
+    texto                          shift and go to state 24
+
+state 17
+
+    (16) texto -> ITALICO_INI . texto ITALICO_FIM
+    (14) texto -> . TEXT
+    (15) texto -> . NEGRITO_INI texto NEGRITO_FIM
+    (16) texto -> . ITALICO_INI texto ITALICO_FIM
+
+    TEXT            shift and go to state 15
+    NEGRITO_INI     shift and go to state 16
+    ITALICO_INI     shift and go to state 17
+
+    texto                          shift and go to state 25
+
+state 18
+
+    (3) elementos -> elemento elementos .
+
+    $end            reduce using rule 3 (elementos -> elemento elementos .)
+
+
+state 19
+
+    (11) paragrafo -> conteudo NEWLINE .
+
+    SECTION         reduce using rule 11 (paragrafo -> conteudo NEWLINE .)
+    SUBSECTION      reduce using rule 11 (paragrafo -> conteudo NEWLINE .)
+    ITEMIZE         reduce using rule 11 (paragrafo -> conteudo NEWLINE .)
+    LINK            reduce using rule 11 (paragrafo -> conteudo NEWLINE .)
+    TEXT            reduce using rule 11 (paragrafo -> conteudo NEWLINE .)
+    NEGRITO_INI     reduce using rule 11 (paragrafo -> conteudo NEWLINE .)
+    ITALICO_INI     reduce using rule 11 (paragrafo -> conteudo NEWLINE .)
+    $end            reduce using rule 11 (paragrafo -> conteudo NEWLINE .)
+
+
+state 20
+
+    (17) lista -> ITEMIZE itens . ENDITEMIZE
+
+    ENDITEMIZE      shift and go to state 26
+
+
+state 21
+
+    (18) itens -> item .
+    (19) itens -> item . itens
+    (18) itens -> . item
+    (19) itens -> . item itens
+    (20) item -> . ITEM conteudo
+
+    ENDITEMIZE      reduce using rule 18 (itens -> item .)
+    ITEM            shift and go to state 22
+
+    item                           shift and go to state 21
+    itens                          shift and go to state 27
+
+state 22
+
+    (20) item -> ITEM . conteudo
+    (12) conteudo -> . texto
+    (13) conteudo -> . texto conteudo
+    (14) texto -> . TEXT
+    (15) texto -> . NEGRITO_INI texto NEGRITO_FIM
+    (16) texto -> . ITALICO_INI texto ITALICO_FIM
+
+    TEXT            shift and go to state 15
+    NEGRITO_INI     shift and go to state 16
+    ITALICO_INI     shift and go to state 17
+
+    conteudo                       shift and go to state 28
+    texto                          shift and go to state 14
+
+state 23
+
+    (13) conteudo -> texto conteudo .
+
+    NEWLINE         reduce using rule 13 (conteudo -> texto conteudo .)
+    ITEM            reduce using rule 13 (conteudo -> texto conteudo .)
+    ENDITEMIZE      reduce using rule 13 (conteudo -> texto conteudo .)
+
+
+state 24
+
+    (15) texto -> NEGRITO_INI texto . NEGRITO_FIM
+
+    NEGRITO_FIM     shift and go to state 29
+
+
+state 25
+
+    (16) texto -> ITALICO_INI texto . ITALICO_FIM
+
+    ITALICO_FIM     shift and go to state 30
+
+
+state 26
+
+    (17) lista -> ITEMIZE itens ENDITEMIZE .
+
+    SECTION         reduce using rule 17 (lista -> ITEMIZE itens ENDITEMIZE .)
+    SUBSECTION      reduce using rule 17 (lista -> ITEMIZE itens ENDITEMIZE .)
+    ITEMIZE         reduce using rule 17 (lista -> ITEMIZE itens ENDITEMIZE .)
+    LINK            reduce using rule 17 (lista -> ITEMIZE itens ENDITEMIZE .)
+    TEXT            reduce using rule 17 (lista -> ITEMIZE itens ENDITEMIZE .)
+    NEGRITO_INI     reduce using rule 17 (lista -> ITEMIZE itens ENDITEMIZE .)
+    ITALICO_INI     reduce using rule 17 (lista -> ITEMIZE itens ENDITEMIZE .)
+    $end            reduce using rule 17 (lista -> ITEMIZE itens ENDITEMIZE .)
+
+
+state 27
+
+    (19) itens -> item itens .
+
+    ENDITEMIZE      reduce using rule 19 (itens -> item itens .)
+
+
+state 28
+
+    (20) item -> ITEM conteudo .
+
+    ITEM            reduce using rule 20 (item -> ITEM conteudo .)
+    ENDITEMIZE      reduce using rule 20 (item -> ITEM conteudo .)
+
+
+state 29
+
+    (15) texto -> NEGRITO_INI texto NEGRITO_FIM .
+
+    TEXT            reduce using rule 15 (texto -> NEGRITO_INI texto NEGRITO_FIM .)
+    NEGRITO_INI     reduce using rule 15 (texto -> NEGRITO_INI texto NEGRITO_FIM .)
+    ITALICO_INI     reduce using rule 15 (texto -> NEGRITO_INI texto NEGRITO_FIM .)
+    NEWLINE         reduce using rule 15 (texto -> NEGRITO_INI texto NEGRITO_FIM .)
+    ITEM            reduce using rule 15 (texto -> NEGRITO_INI texto NEGRITO_FIM .)
+    ENDITEMIZE      reduce using rule 15 (texto -> NEGRITO_INI texto NEGRITO_FIM .)
+    NEGRITO_FIM     reduce using rule 15 (texto -> NEGRITO_INI texto NEGRITO_FIM .)
+    ITALICO_FIM     reduce using rule 15 (texto -> NEGRITO_INI texto NEGRITO_FIM .)
+
+
+state 30
+
+    (16) texto -> ITALICO_INI texto ITALICO_FIM .
+
+    TEXT            reduce using rule 16 (texto -> ITALICO_INI texto ITALICO_FIM .)
+    NEGRITO_INI     reduce using rule 16 (texto -> ITALICO_INI texto ITALICO_FIM .)
+    ITALICO_INI     reduce using rule 16 (texto -> ITALICO_INI texto ITALICO_FIM .)
+    NEWLINE         reduce using rule 16 (texto -> ITALICO_INI texto ITALICO_FIM .)
+    ITEM            reduce using rule 16 (texto -> ITALICO_INI texto ITALICO_FIM .)
+    ENDITEMIZE      reduce using rule 16 (texto -> ITALICO_INI texto ITALICO_FIM .)
+    NEGRITO_FIM     reduce using rule 16 (texto -> ITALICO_INI texto ITALICO_FIM .)
+    ITALICO_FIM     reduce using rule 16 (texto -> ITALICO_INI texto ITALICO_FIM .)
+

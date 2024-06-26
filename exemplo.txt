@@ -1,15 +1,33 @@
 \section{Introdução}
-Este é um exemplo de documento utilizando a linguagem [negrito]Markdown[/negrito].
+This is an introduction.
 
-\subsection{Objetivo}
-O objetivo deste documento é demonstrar a transformação de texto simples em um arquivo LaTeX.
-
-Este é um [negrito]parágrafo[/negrito] que contém [italico]texto em itálico[/italico] e também [negrito][italico]negrito e itálico[/italico][/negrito].
-
+\subsection{Objetivos}
+Os objetivos deste documento são:
 \begin{itemize}
-\item Este é o primeiro item da lista.
-\item Este é o segundo item da lista.
-\item Este é o terceiro item da lista com [negrito]negrito[/negrito].
+\item Compreender a sintaxe LaTeX.
+\item Aprender sobre a estrutura de documentos.
+\item Utilizar ambientes e comandos básicos.
 \end{itemize}
 
-Para mais informações, acesse o [link=http://example.com]site de exemplo[/link].
+\section{Fundamentação Teórica}
+\begin{itemize}
+\item A matemática é fundamental:
+\begin{itemize}
+\item O teorema de Pitágoras: \[ c^2 = a^2 + b^2 \]
+\item A fração \frac{1}{2} é metade.
+\end{itemize}
+\item Referências são importantes: veja a Seção \ref{sec:ref}.
+\end{itemize}
+
+\subsection{Referências}
+\label{sec:ref}
+\begin{itemize}
+\item Bibliografia:
+\begin{itemize}
+\item \bibitem{ref1} Autor, Título, Ano.
+\end{itemize}
+\end{itemize}
+
+\section{Conclusão}
+Este é o texto da conclusão.
+\end{document}

@@ -1,20 +1,25 @@
-from lexico import lexer
-from sintatico import parser
-from semantico import ast_para_latex
+# encoding: utf-8
 
-# Função para ler conteúdo de um arquivo
-def ler_arquivo(nome_arquivo):
-    with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
-        return arquivo.read()
+from lexer import lexer
+from parser import parser, output
 
-# Teste com o arquivo exemplo.txt
-if __name__ == '__main__':
-    data = ler_arquivo('exemplo.txt')
+def process_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        data = file.read()
 
     lexer.input(data)
-    ast = parser.parse(data)
-    if ast:
-        latex = ast_para_latex(ast)
-        print(latex)
+    result = parser.parse(data)
+
+    if result:
+        print("Arquivo em gerado:\n")
+        print("\n".join(output))
+
+        output_file = 'output.txt'
+        with open(output_file, 'w') as out:
+            out.write("\n".join(output))
+        print(f"\nArquivo salvo como {output_file}.")
     else:
-        print("Erro ao analisar o documento.")
+        print("Erro na análise sintática.")
+
+# Processa o arquivo de exemplo
+process_file('data.tex')
